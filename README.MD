@@ -4,8 +4,8 @@
 ## Installation
 
 ```bash
-# download the file and name it chaos_deck.py
-chmod +x chaos_deck.py
+# download the file and name it chaos-sail.py
+chmod +x chaos-sail.py
 # (optional) put it on your PATH
 mv chaos-sail.py ~/.local/bin/chaos-sail.py
 ```
@@ -28,16 +28,16 @@ export EDITOR="code -w"    # VS Code
 
 ```bash
 # 1) Initialize (creates the root and journal.md)
-chaos_deck.py init
+chaos-sail.py init
 
 # 2) Spark — a short thought (one line)
-chaos_deck.py spark "riff in Em, dotted 8th delay #music"
+chaos-sail.py spark "riff in Em, dotted 8th delay #music"
 
 # 3) Flow — open the editor and work 10–40 minutes
-chaos_deck.py flow "north-wind-chorus"
+chaos-sail.py flow "north-wind-chorus"
 
 # 4) Trace — attach an artifact (a file)
-chaos_deck.py trace ~/music/north_wind_demo.mp3 "first take #music"
+chaos-sail.py trace ~/music/north_wind_demo.mp3 "first take #music"
 ```
 
 ---
@@ -46,11 +46,11 @@ chaos_deck.py trace ~/music/north_wind_demo.mp3 "first take #music"
 
 | Command              | What it does                                                                                    | Example                                                 |
 | -------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| `init`               | Creates the base structure and the journal                                                      | `chaos_deck.py init`                                    |
-| `spark [text...]`    | Short note (≤ 5 min). If no text is provided, it opens your editor and saves a file in `spark/` | `chaos_deck.py spark "idea: Em→G→D"`                    |
-| `flow [name]`        | Opens the editor for a focused chunk of work (file goes to `flow/`)                             | `chaos_deck.py flow "docker-multistage"`                |
-| `trace <file> [msg]` | Copies an artifact into `trace/` and appends one line to the journal                            | `chaos_deck.py trace ~/shots/k8s_pods.png "green #k8s"` |
-| `roll`               | Rolls a d6 to suggest where to go next (music/languages/hardware/text/research/wildcard)        | `chaos_deck.py roll`                                    |
+| `init`               | Creates the base structure and the journal                                                      | `chaos-sail.py init`                                    |
+| `spark [text...]`    | Short note (≤ 5 min). If no text is provided, it opens your editor and saves a file in `spark/` | `chaos-sail.py spark "idea: Em→G→D"`                    |
+| `flow [name]`        | Opens the editor for a focused chunk of work (file goes to `flow/`)                             | `chaos-sail.py flow "docker-multistage"`                |
+| `trace <file> [msg]` | Copies an artifact into `trace/` and appends one line to the journal                            | `chaos-sail.py trace ~/shots/k8s_pods.png "green #k8s"` |
+| `roll`               | Rolls a d6 to suggest where to go next (music/languages/hardware/text/research/wildcard)        | `chaos-sail.py roll`                                    |
 
 Common flag:
 
@@ -101,25 +101,25 @@ Tips:
 ### Music
 
 ```bash
-chaos_deck.py spark "hook in Em #music"
-chaos_deck.py flow  "northern-verse"
-chaos_deck.py trace ~/bounces/northern_verse_v1.mp3 "sketch #music"
+chaos-sail.py spark "hook in Em #music"
+chaos-sail.py flow  "northern-verse"
+chaos-sail.py trace ~/bounces/northern_verse_v1.mp3 "sketch #music"
 ```
 
 ### Languages
 
 ```bash
-chaos_deck.py spark "AM: inch bes es? #armenian #languages"
-chaos_deck.py flow  "armenian-mini-monologue"
-chaos_deck.py trace ~/voice/arm_2025-08-25.ogg "no cuts #languages"
+chaos-sail.py spark "AM: inch bes es? #armenian #languages"
+chaos-sail.py flow  "armenian-mini-monologue"
+chaos-sail.py trace ~/voice/arm_2025-08-25.ogg "no cuts #languages"
 ```
 
 ### Hardware / RPi
 
 ```bash
-chaos_deck.py spark "GPIO smoke plan #rpi #hardware"
-chaos_deck.py flow  "led-fade-proto"
-chaos_deck.py trace ~/photos/led_fade_breadboard.jpg "ok #hardware"
+chaos-sail.py spark "GPIO smoke plan #rpi #hardware"
+chaos-sail.py flow  "led-fade-proto"
+chaos-sail.py trace ~/photos/led_fade_breadboard.jpg "ok #hardware"
 ```
 
 ---
