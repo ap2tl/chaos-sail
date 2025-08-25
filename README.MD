@@ -7,18 +7,18 @@
 # download the file and name it chaos_deck.py
 chmod +x chaos_deck.py
 # (optional) put it on your PATH
-mv chaos_deck.py ~/.local/bin/chaos_deck.py
+mv chaos-sail.py ~/.local/bin/chaos-sail.py
 ```
 
 ### Environment variables
 
-* `CHAOS_ROOT` — root directory (default: `~/ChaosDeck`).
+* `CHAOS_ROOT` — root directory (default: `~/ChaosSail`).
 * `EDITOR` / `VISUAL` — preferred editor (Linux/macOS). On Windows the fallback is `notepad`.
 
 Example:
 
 ```bash
-export CHAOS_ROOT=~/ChaosDeck
+export CHAOS_ROOT=~/ChaosSail
 export EDITOR="code -w"    # VS Code
 ```
 
@@ -61,7 +61,7 @@ Common flag:
 ## Folder layout
 
 ```
-~/ChaosDeck/
+~/ChaosSail/
   journal.md
   2025/
     08/
