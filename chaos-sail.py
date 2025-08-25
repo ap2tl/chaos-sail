@@ -113,7 +113,7 @@ def known_tags(entries: Sequence[JEntry]) -> Counter:
 def cmd_init(args: argparse.Namespace) -> int:
     root: Path = args.root
     ensure_base(root)
-    print(f"Initialized Chaos Deck at: {root}")
+    print(f"Initialized Chaos Sail at: {root}")
     return 0
 
 
@@ -238,7 +238,7 @@ def cmd_stats_all(args: argparse.Namespace) -> int:
     tags = known_tags(filt)
     top_tags = ", ".join(f"#{t}({c})" for t, c in tags.most_common(10)) or "—"
 
-    print("=== Chaos Deck: stats-all ===")
+    print("=== Chaos Sail: stats-all ===")
     if args.since is not None:
         print(f"Period: last {args.since} days")
     else:
@@ -319,7 +319,7 @@ def cmd_stats_tags(args: argparse.Namespace) -> int:
     days = sorted({e.date for e in filt})
     tags = known_tags(filt)
 
-    print("=== Chaos Deck: stats-tags ===")
+    print("=== Chaos Sail: stats-tags ===")
     print("Tags:", ", ".join(f"#{t}" for t in wanted))
     if args.since is not None:
         print(f"Period: last {args.since} days")
@@ -383,7 +383,7 @@ def cmd_install_completion(args: argparse.Namespace) -> int:
         print(line, end="")
         return 0
     with rc.open("a", encoding="utf-8") as f:
-        f.write("\n# Chaos Deck completion\n")
+        f.write("\n# Chaos Sail completion\n")
         f.write(line)
     print(f"Bash completion installed into {rc}. Restart your shell or `source {rc}`.")
     return 0
@@ -394,7 +394,7 @@ def cmd_install_completion(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="chaos_deck.py",
-        description="Chaos Deck — spark/flow/trace cadence without bureaucracy",
+        description="Chaos Sail — spark/flow/trace cadence without bureaucracy",
     )
     p.add_argument(
         "--root",
