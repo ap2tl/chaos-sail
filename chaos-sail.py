@@ -22,11 +22,11 @@ DEFAULT_ROOT = Path(os.environ.get("CHAOS_ROOT", Path.home() / "ChaosSail"))
 
 # TODO: should not be hard-coded
 CATEGORIES = {
-    1: "software",
+    1: "development - software",
     2: "routines",
     3: "learning - software",
     4: "learning - hardware",
-    5: "research",
+    5: "research - ",
     6: "wildcard",
 }
 
@@ -308,7 +308,7 @@ def cmd_stats_tags(args: argparse.Namespace) -> int:
     wanted, unknown = match_tags(tags_counter, args.tags)
     if unknown:
         print("Unknown/ambiguous: " + ", ".join(unknown), file=sys.stderr)
-        print("Use `chaos_deck.py tags` to see available tags.")
+        print("Use `chaos_sail.py tags` to see available tags.")
         return 2
 
     # Filter entries by tags
@@ -359,7 +359,7 @@ def cmd_tags(args: argparse.Namespace) -> int:
 def complete_from_env(args: argparse.Namespace) -> int:
     """Very small bash completion handler for `stats-tags`.
     Usage (installed by `install-completion`):
-      complete -o default -C "/path/to/chaos_deck.py __complete" chaos_deck.py
+      complete -o default -C "/path/to/chaos_sail.py __complete" chaos_sail.py
     Bash will call this command with COMP_LINE/COMP_POINT in env.
     We return newline-separated candidates.
     """
@@ -385,7 +385,7 @@ def complete_from_env(args: argparse.Namespace) -> int:
 
 def cmd_install_completion(args: argparse.Namespace) -> int:
     script_path = Path(sys.argv[0]).expanduser().resolve()
-    line = f'complete -o default -C "{script_path} __complete" chaos_deck.py\n'
+    line = f'complete -o default -C "{script_path} __complete" chaos_sail.py\n'
     rc = Path.home() / ".bashrc"
     if args.print:
         print(line, end="")
@@ -401,7 +401,7 @@ def cmd_install_completion(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="chaos_deck.py",
+        prog="chaos_sail.py",
         description="Chaos Sail — spark/flow/trace cadence without bureaucracy",
     )
     p.add_argument(
@@ -413,7 +413,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    sp_init = sub.add_parser("init", help="initialize the deck structure")
+    sp_init = sub.add_parser("init", help="initialize the file structure")
     sp_init.set_defaults(func=cmd_init)
 
     sp_spark = sub.add_parser("spark", help="drop a tiny note into today's spark/")
