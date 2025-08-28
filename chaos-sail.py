@@ -8,6 +8,7 @@ import datetime as dt
 import os
 import random
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -59,9 +60,16 @@ def append_journal(root: Path, line: str) -> None:
 
 
 def pick_editor() -> List[str]:
+    """Return the user's preferred editor as an argv list.
+
+    `EDITOR`/`VISUAL` may contain additional arguments (e.g. ``code -w``),
+    so we need to split the string similarly to how a shell would.  The
+    previous implementation returned the entire string as a single element,
+    causing lookups to fail when an editor command included spaces.
+    """
     editor = os.environ.get("EDITOR") or os.environ.get("VISUAL")
     if editor:
-        return [editor]
+        return shlex.split(editor)
     if os.name == "nt":
         return ["notepad"]
     return ["vim"]
