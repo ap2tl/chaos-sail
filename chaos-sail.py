@@ -172,10 +172,10 @@ def cmd_trace(args: argparse.Namespace) -> int:
 
     msg = (args.message or "").strip()
     print(f"[trace] {dest}")
-    jline = f"{iso_today()} | trace: {dest.name}"
+    line = f"{iso_today()} | trace: {dest.name}"
     if msg:
-        jline += f" | {msg}"
-    append_journal(root, jline)
+        line += f" | {msg}"
+    append_journal(root, line)
     return 0
 
 
@@ -289,8 +289,7 @@ def match_tags(existing: Counter, raw_tags: Sequence[str]) -> Tuple[List[str], L
 
 
 def cmd_stats_tags(args: argparse.Namespace) -> int:
-    root: Path = args.root
-    entries = parse_journal(root)
+    entries = parse_journal(args.root)
     if not entries:
         print("No journal entries yet.")
         return 0
@@ -315,8 +314,8 @@ def cmd_stats_tags(args: argparse.Namespace) -> int:
     def has_tags(e: JEntry) -> bool:
         s = set(e.tags)
         if args.logic == "and":
-            return all(t in s for t in wanted)
-        return any(t in s for t in wanted)
+            return all(x in s for x in wanted)
+        return any(x in s for x in wanted)
 
     filt = [e for e in entries if within_period(e.date, args.since, start, end) and has_tags(e)]
     if not filt:
