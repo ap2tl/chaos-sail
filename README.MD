@@ -1,5 +1,8 @@
 # Chaos Sail
 
+## Disclaimer
+ChaosSail is experimental software provided “as is.” Use it at your own risk. It was created by the author for personal use, informed by scientific literature and personal conversations with psychotherapists. The author assumes no responsibility for any outcomes, including specifically changes in behavior that the author personally experienced. This tool is not medical or psychological advice.
+
 
 ## Installation
 
